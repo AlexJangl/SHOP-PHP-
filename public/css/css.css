@@ -1,0 +1,32 @@
+.sizeBlock{
+    height: 400px;
+}
+#sizeImg{
+    width: 300px;
+    height: 200px;
+}
+#sizeImg1{
+    width: 300px;
+    height: 300px;
+}
+#description{
+    text-overflow: ellipsis;
+    white-space:nowrap;
+    overflow: hidden;
+}
+html {
+    position: relative;
+    min-height: 100%;
+}
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+}
+#footer {
+    position: absolute;
+    bottom: -1px;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    background-color: #f5f5f5;
+}
