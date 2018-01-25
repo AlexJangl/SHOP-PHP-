@@ -43,8 +43,9 @@
                         <ul class="dropdown-menu">
                             <li><a href="#">Профиль</a></li>
                             <?php
-                            require_once '/../../Models/UsersModel.php';
-                            $users= new UsersModel();
+                            //use App\Models\UsersModel;
+                            //require_once '/../../Models/UsersModel.php';
+                            $users= new \App\Models\UsersModel();
                             if ($users->is_admin($_SESSION['name'])) {?>
                                 <li><a href="/admin/products">Панель администратора</a></li>
                             <?php } ?>

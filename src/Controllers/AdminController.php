@@ -1,7 +1,10 @@
 <?php
-require_once 'Controller.php';
-require_once '/../Models/UsersModel.php';
-require_once '/../Models/ProductModel.php';
+namespace App\Controllers;
+use App\Controllers\Controller;
+use App\Models\UsersModel;
+use App\Models\ProductModel;
+//require_once '/../Models/UsersModel.php';
+//require_once '/../Models/ProductModel.php';
 
 class AdminController extends Controller
 {
@@ -16,7 +19,7 @@ class AdminController extends Controller
         $products=new ProductModel();
         $products=$products->getAllProducts();
         //var_dump($products);
-       $this->display('products', 'Admin/layout/main',$products);
+       $this->display('products', 'Admin/layout/main',['products' => $products]);
     }
     public function edit_product(){
         $id=$_GET['id'];

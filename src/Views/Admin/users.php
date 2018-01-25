@@ -13,7 +13,8 @@
         </tr>
         </thead>
         <tbody>
-        <?php foreach ($data as $user){ ?>
+        <?php foreach ($data['products'] as $user){
+            /*if (!empty($user))*/{?>
             <tr>
                 <td><?= $user['id']?></td>
                 <td><?= $user['name']?></td>
@@ -26,7 +27,7 @@
                     </div>
                 </td>
             </tr>
-        <?php } ?>
+        <?php }} ?>
 
         </tbody>
     </table>

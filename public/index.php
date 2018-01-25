@@ -2,24 +2,9 @@
 
 session_start();
 
-require_once '/../config/app.php';
+require_once '../vendor/autoload.php';
 
-//switch (isset($_GET['page'])? $_GET['page']: '/') {
-//    case '/':
-//        require_once '/../src/Controllers/ProductController.php';
-//        $controller=new ProductController();
-//        $controller->catalog();
-//        break;
-//    case 'contact':
-//        require_once '/../src/Controllers/ContactController.php';
-//        $controller=new ContactController();
-//        $controller->contact();
-//        break;
-//    default:
-//        exit('404 error');
-//}
 
-//var_dump($_SERVER['REQUEST_URI']);
 $url=$_SERVER['REQUEST_URI'];
 $url=explode('?',$url);
 $url=explode('/',$url[0]);
@@ -41,6 +26,6 @@ else
     $controller='ProductController';
     $metod='index';
 }
-require_once '/../src/Controllers/'.$controller.'.php';
+$controller='App\Controllers\\'.$controller;
 $controller=new $controller();
 $controller->$metod();

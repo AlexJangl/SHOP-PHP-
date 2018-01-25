@@ -1,10 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Shurik.com
- * Date: 13.12.2017
- * Time: 21:33
- */
+
+namespace App\Controllers;
 
 class Controller
 {

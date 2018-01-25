@@ -1,12 +1,8 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Shurik.com
- * Date: 11-Jan-18
- * Time: 20:04
- */
-require_once "Controller.php";
-require_once "/../Models/ProductModel.php";
+namespace App\Controllers;
+use App\Controllers\Controller;
+use App\Models\ProductModel;
+//require_once "/../Models/ProductModel.php";
 
 class CartController extends Controller
 {

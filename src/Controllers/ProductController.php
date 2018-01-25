@@ -1,14 +1,17 @@
 <?php
+namespace App\Controllers;
+use App\Controllers\Controller;
+use App\Models\ProductModel;
+//require_once 'Controller.php';
+//require_once '/../Models/ProductModel.php';
 
-require_once 'Controller.php';
-require_once '/../Models/ProductModel.php';
 
 class ProductController  extends Controller
 {
     public function index()
     {
         $products = new ProductModel();
-        $this->display('catalog', 'layout/main', $products->getAllProducts());
+        $this->display('catalog', 'layout/main', ['products' => $products->getAllProducts()]);
     }
 
     public function show()

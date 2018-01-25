@@ -1,7 +1,8 @@
-
+<?php var_dump($data) ?>
 <div class="row">
 <?php
-foreach ($data as $product){?>
+foreach ($data['products'] as $product){ ?>
+
     <div class="col-sm-6 col-md-3" >
         <div class="thumbnail sizeBlock">
             <img id="sizeImg" src="/img/<?=$product['img']?>" >

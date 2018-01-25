@@ -1,5 +1,7 @@
 <?php
-require_once 'Model.php';
+namespace App\Models;
+use App\Models\Model;
+//require_once 'Model.php';
 
 class UsersModel extends Model
 {

@@ -1,6 +1,9 @@
 <?php
-require_once 'Controller.php';
-require_once '/../Models/UsersModel.php';
+namespace App\Controllers;
+use App\Controllers\Controller;
+use App\Models\UsersModel;
+//require_once '/../Models/UsersModel.php';
+
 
 class UsersController extends Controller
 {

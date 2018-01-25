@@ -1,0 +1,21 @@
+{
+    "name": "shurik.com/progeckt-shop",
+    "description": "shop",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sanya",
+            "email": "jangl@i.ua"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {},
+    "autoload":{
+        "files":[
+            "config/app.php"
+        ],
+        "psr-4":{
+            "App\\":"src/"
+        }
+    }
+}
