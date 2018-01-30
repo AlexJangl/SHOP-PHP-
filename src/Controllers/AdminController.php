@@ -10,22 +10,30 @@ class AdminController extends Controller
 {
     function __construct()
     {
+        parent::__construct();
         $users= new UsersModel();
         if (!$users->is_admin($_SESSION['name'])){
             $this->redirect('/');
         }
+
     }
     public function products(){
         $products=new ProductModel();
         $products=$products->getAllProducts();
-        //var_dump($products);
-       $this->display('products', 'Admin/layout/main',['products' => $products]);
+        //var_dump($this->smarty);
+        $this->smarty->assign([
+            'products' => $products
+        ]);
+       $this->smarty->display('Admin/products.tpl');
     }
     public function edit_product(){
         $id=$_GET['id'];
         $product=new ProductModel();
         $product=$product->getProduct($id);
-        $this->display('edit_product','Admin/layout/main',$product);
+        $this->smarty->assign([
+            'product'=>$product
+        ]);
+        $this->smarty->display('Admin/edit_product.tpl');
     }
 
     public function update_product (){
@@ -60,7 +68,7 @@ class AdminController extends Controller
     }
 
     public function create_product(){
-        $this->display('create_product', 'Admin/layout/main');
+        $this->smarty->display('Admin/create_product.tpl');
     }
 
     public function save_product(){
@@ -82,10 +90,14 @@ class AdminController extends Controller
         $users=new UsersModel();
         $users=$users->getAllUsers();
         //var_dump($products);
-        $this->display('users', 'Admin/layout/main',$users);
+        $this->smarty->assign([
+            'users' => $users
+        ]);
+        $this->smarty->display('Admin/users.tpl');
+        //$this->display('users', 'Admin/layout/main',$users);
     }
     public function create_user(){
-        $this->display('create_user', 'Admin/layout/main');
+        $this->smarty->display('Admin/create_user.tpl');
     }
     public function save_user()
     {
@@ -103,7 +115,10 @@ class AdminController extends Controller
         $id=$_GET['id'];
         $user=new UsersModel();
         $user=$user->getUser($id);
-        $this->display('edit_user','Admin/layout/main',$user);
+        $this->smarty->assign([
+           'user'=>$user
+        ]);
+        $this->smarty->display('Admin/edit_user.tpl');
     }
 
     public function update_user (){

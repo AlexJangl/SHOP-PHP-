@@ -30,6 +30,7 @@ class CartController extends Controller
     public function show (){
         $products=[];
         $sum=0;
+        $cart_count=0;
         $product=new ProductModel();
         if (isset($_SESSION['cart'])){
          foreach ($_SESSION['cart'] as $key=>$item){
@@ -37,13 +38,24 @@ class CartController extends Controller
              $products[$key]['count']=$item['count'];
              $products[$key]['key'] = $key;
              $sum=$sum+$products[$key]['price']*$products[$key]['count'];
+             $cart_count=$cart_count+$item['count'];
+
              
          }
-//         var_dump($products);
-            $this->display('cart','layout/main',['products'=>$products, 'sum'=>$sum]);
+            $this->smarty->assign([
+                'products'=>$products,
+                'sum'=>$sum,
+                'cart_count'=>$cart_count
+
+            ]);
+
+            $this->smarty->display('cart.tpl');
         }
          else{
-            $this->display('error','layout/main',['error'=>'Карзина пустая']);
+             $this->smarty->assign([
+                 'error'=>'cart empty'
+             ]);
+             $this->smarty->display('error.tpl');
          }
         //$this->display('cart');
     }

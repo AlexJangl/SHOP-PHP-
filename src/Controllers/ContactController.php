@@ -6,7 +6,7 @@ class ContactController  extends Controller
 {
     public function index()
     {
-        $this->display('contact');
+        $this->smarty->display('contact.tpl');
     }
 }
 

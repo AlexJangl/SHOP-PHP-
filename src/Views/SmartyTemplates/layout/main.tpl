@@ -37,33 +37,29 @@
 
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="/cart/show" class=""><i class="fa fa-shopping-cart fa-lg" aria-hidden="true" style="color: #337AB7"></i>
-                            <span style="border: 1px; background-color: #ac2925; color: #ffffff; border-radius: 40% "><?=" ".$data['cart_count']?><?=" "?></span></a> </li>
-                    <?php if (isset($_SESSION['name'])){?>
+                            <span style="border: 1px; background-color: #ac2925; color: #ffffff; border-radius: 40% "> {$cart_count} </span></a> </li>
+                    {if (isset($smarty.session.name))}
                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?= $_SESSION ['name']?> <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">{$smarty.session.name} <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="#">Профиль</a></li>
-                            <?php
-                            //use App\Models\UsersModel;
-                            //require_once '/../../Models/UsersModel.php';
-                            $users= new \App\Models\UsersModel();
-                            if ($users->is_admin($_SESSION['name'])) {?>
+                            {if ($user)}
                                 <li><a href="/admin/products">Панель администратора</a></li>
-                            <?php } ?>
+                            {/if}
                             <li class="divider"></li>
                             <li><a href="/users/logout">Выйти</a></li>
                         </ul>
                     </li>
-                    <?php } else { ?>
+                    {else}
+
                     <li><a href="/users/registration">Регистрация</a></li>
                     <li><a href="/users/login">Войти</a></li>
-                    <?php } ?>
+                    {/if}
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
-<?php require_once '/../'.$name.'.php';?>
-
+    {block name="content"}{/block}
 
 </div>
 

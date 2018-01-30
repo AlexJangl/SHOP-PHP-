@@ -1,4 +1,4 @@
-<?php var_dump($data) ?>
+
 <div class="row">
 <?php
 foreach ($data['products'] as $product){ ?>
